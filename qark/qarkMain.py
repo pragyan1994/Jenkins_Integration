@@ -241,6 +241,7 @@ def list_all_apk():
         else:
             common.logger.warning("Waiting for a device to be connected...")
             time.sleep(5)
+
     p0 = Popen([adb, 'shell', 'pm', 'list', 'packages', '-f'], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
     index = 0
     for line in p0.stdout:
@@ -268,6 +269,7 @@ def uninstall(package):
         else:
             common.logger.warning("Waiting for a device to be connected...")
             time.sleep(5)
+            
     uninstall = Popen([adb, 'shell', 'pm', 'uninstall', package], stdout=PIPE, stdin=PIPE, stderr=STDOUT)
     for line in uninstall.stdout:
         if "Failure" in line:
@@ -460,9 +462,7 @@ def main():
     if len(sys.argv) > 1:
         common.interactive_mode = False
     else:
-	common.interactive_mode = False
-
-
+        common.interactive_mode = False
 
     #######################################
     #Command line argument sanity checks
@@ -1080,7 +1080,7 @@ def main():
             else:
                 install_option = common.args.install
                 if install_option:
-                    install = "y"
+                    install = "n"
                 else:
                     install_option = "n"
             if install=='y':
@@ -1096,6 +1096,7 @@ def main():
                     common.logger.error("Problems installing exploit APK: " + str(e))
             else:
                 common.logger.info("The apk can be found in the "+common.getConfig("rootDir")+"/build/qark directory")
+                common.logger.info("HAHAHAHAHA ")
     elif exploit_choice==2:
         if common.reportInitSuccess:
             print "An html report of the findings is located in : " + common.reportDir
