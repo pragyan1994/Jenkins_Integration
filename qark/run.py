@@ -1,5 +1,5 @@
 import os
-x = "/Users/pragyan.a.paramita/Downloads/sieve.apk"
+x = os.environ['JENKINS_HOME']+'/jobs/'+os.environ['JOB_NAME']+'/workspace/goatdroid.apk'
+print x
 os.system("python qarkMain.py --source 1 --pathtoapk "+x+" --exploit 1 --install 1");
-
 print "Done"
