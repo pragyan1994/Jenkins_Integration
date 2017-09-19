@@ -459,6 +459,10 @@ def main():
 
     if len(sys.argv) > 1:
         common.interactive_mode = False
+    else:
+	common.interactive_mode = False
+
+
 
     #######################################
     #Command line argument sanity checks
